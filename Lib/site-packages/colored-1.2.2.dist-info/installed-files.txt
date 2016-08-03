@@ -1,0 +1,17 @@
+../colored/__init__.py
+../colored/style.py
+../colored/hex.py
+../colored/colored.py
+../colored/fore.py
+../colored/back.py
+../colored/__init__.pyc
+../colored/style.pyc
+../colored/hex.pyc
+../colored/colored.pyc
+../colored/fore.pyc
+../colored/back.pyc
+./
+SOURCES.txt
+PKG-INFO
+dependency_links.txt
+top_level.txt
