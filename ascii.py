@@ -20,7 +20,7 @@ im = Image.open(image_file)
 
 size = im.size
 columns = terminal.get_terminal_size()[0]
-rows = round(size[1]/size[0] * columns)	
+rows = int(round(size[1]/size[0] * columns))
 """
 rows/columns = height/width
 """

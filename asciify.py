@@ -7,7 +7,7 @@ def asciify(r,g,b,a):
 	pix = Pixel(r,g,b,a)
 	value = pix.intensity()
 	precision = 255 * 3 / (len(pixels) -1)
-	rawChar = pixels[round(value / precision)]
+	rawChar = pixels[int(round(value / precision))]
 	closeColor = closest(r,g,b)
 	color = fg(closeColor)
 	res = attr('reset')
