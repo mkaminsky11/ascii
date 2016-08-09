@@ -1,0 +1,3 @@
+Pillow
+urllib3
+colored

@@ -20,7 +20,8 @@ im = Image.open(image_file)
 
 size = im.size
 columns = 60
-rows = int(round(size[1]/size[0] * columns))
+rows = columns * size[1] / size[0]
+rows = int(round(rows))
 """
 rows/columns = height/width
 """
@@ -34,8 +35,6 @@ for y in range(0, size[1]):
 	for x in range(0, size[0]):
 		_px = px[x,y]
 		_a = asciify.asciify(_px[0], _px[1], _px[2], 1)
-		
-		print(_px)
 
 		output = output + _a
 	output = output + "\n"
