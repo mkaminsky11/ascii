@@ -13,13 +13,13 @@ http = urllib3.PoolManager()
 import io
 
 # load images
-URL = "http://mkaminsky11.github.io/img/profile.jpeg"
+URL = "http://i.imgur.com/ITx3Jcd.jpg"
 fd = http.request('GET', URL)
 image_file = io.BytesIO(fd.data)
 im = Image.open(image_file)
 
 size = im.size
-columns = terminal.get_terminal_size()[0]
+columns = 60
 rows = int(round(size[1]/size[0] * columns))
 """
 rows/columns = height/width
@@ -33,7 +33,13 @@ output = ""
 for y in range(0, size[1]):
 	for x in range(0, size[0]):
 		_px = px[x,y]
-		output = output + asciify.asciify(_px[0], _px[1], _px[2], 1)
-	output = output
+		_a = asciify.asciify(_px[0], _px[1], _px[2], 1)
+		
+		print(_px)
+
+		output = output + _a
+	output = output + "\n"
+
+# im.show()
 
 print(output)
