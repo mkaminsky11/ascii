@@ -40,7 +40,5 @@ def loadFromUrl(URL):
 		output = output + "\n"
 	return output
 
-def onePixel(rawChar, r, g, b):
+def onePixel(r, g, b):
 	return asciify.asciify(r,g,b, 1)
-
-print(loadFromUrl("http://i.imgur.com/ITx3Jcd.jpg"))
