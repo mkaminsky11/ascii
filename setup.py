@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'ascii',
   packages = ['ascii'], # this must be the same as the name above
-  version = '1',
+  version = '1.1',
   description = 'Turns images into ascii art',
   author = 'Michael Kaminsky',
   author_email = 'mkaminsky11@gmail.com',
