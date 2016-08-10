@@ -13,32 +13,34 @@ http = urllib3.PoolManager()
 import io
 
 # load images
-URL = "http://i.imgur.com/ITx3Jcd.jpg"
-fd = http.request('GET', URL)
-image_file = io.BytesIO(fd.data)
-im = Image.open(image_file)
+def loadFromUrl(URL):
+	fd = http.request('GET', URL)
+	image_file = io.BytesIO(fd.data)
+	im = Image.open(image_file)
 
-size = im.size
-columns = 60
-rows = columns * size[1] / size[0]
-rows = int(round(rows))
-"""
-rows/columns = height/width
-"""
-im = im.resize((columns, rows))
-px = im.load()
-size = im.size
+	size = im.size
+	columns = 60
+	rows = columns * size[1] / size[0]
+	rows = int(round(rows))
+	"""
+	rows/columns = height/width
+	"""
+	im = im.resize((columns, rows))
+	px = im.load()
+	size = im.size
 
-output = ""
+	output = ""
 
-for y in range(0, size[1]):
-	for x in range(0, size[0]):
-		_px = px[x,y]
-		_a = asciify.asciify(_px[0], _px[1], _px[2], 1)
+	for y in range(0, size[1]):
+		for x in range(0, size[0]):
+			_px = px[x,y]
+			_a = asciify.asciify(_px[0], _px[1], _px[2], 1)
 
-		output = output + _a
-	output = output + "\n"
+			output = output + _a
+		output = output + "\n"
+	return output
 
-# im.show()
+def onePixel(rawChar, r, g, b):
+	return asciify.asciify(r,g,b, 1)
 
-print(output)
+print(loadFromUrl("http://i.imgur.com/ITx3Jcd.jpg"))

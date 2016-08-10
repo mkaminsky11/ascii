@@ -1,37 +1,18 @@
-#!/usr/bin/env python
+import convert
+
 def colorize(rawChar, px):
-	color = ""
-	reset = ""
+	r = px[0]
+	g = px[1]
+	b = px[2]
+	rgb = [r,g,b]
+	code = convert.convert["rgb"]["ansi256"](rgb)
+	color = wrapAnsi256(code, 0)
+	reset = '\u001b[39m'
 	
 	return color + rawChar + reset
 
-colors = {
-	"modifiers": {
-		"reset": [0,0]
-	},
-	"colors": {
-			"black": [30, 39],
-			"red": [31, 39],
-			"green": [32, 39],
-			"yellow": [33, 39],
-			"blue": [34, 39],
-			"magenta": [35, 39],
-			"cyan": [36, 39],
-			"white": [37, 39],
-			"gray": [90, 39],
-			"grey": [90, 39]
-	}
-}
-for groupKey in colors:
-	group = colors[groupKey]
-	for key in group:
-		style = group[key]
-		colors[groupKey][key] = {
-			"open": '\u001b[' + str(style[0]) + 'm',
-			"close": '\u001b[' + str(style[1]) + 'm'
-		}
+def wrapAnsi16(code, offset):
+	return '\u001b[' + str(code + offset) + 'm'
 
-colors["colors"]["close"] = '\u001b[39m'
-colors["colors"]["ansi"] = {}
-colors["colors"]["ansi256"] = {}
-
+def wrapAnsi256(code, offset):
+	return '\u001b[' + str(38 + offset) + ';5;' + str(code) + 'm'
