@@ -1,4 +1,3 @@
-from pixel import Pixel
 import math
 pixels = ".,:;i1tfLCG08@"
 
