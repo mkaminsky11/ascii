@@ -15,4 +15,4 @@ def wrapAnsi16(code, offset):
 	return '\x1b[' + str(code) + 'm'
 
 def wrapAnsi256(code, offset):
-	return '\x1b[38;5;' + str(offset) + 'm'
+	return '\x1b[38;5;' + str(code) + 'm'
