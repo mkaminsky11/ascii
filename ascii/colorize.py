@@ -7,12 +7,12 @@ def colorize(rawChar, px):
 	rgb = [r,g,b]
 	code = convert.convert["rgb"]["ansi256"](rgb)
 	color = wrapAnsi256(code, 0)
-	reset = '' #'\u001b[39m'
+	reset = '\x1b[0m'
 	
 	return color + rawChar + reset
 
 def wrapAnsi16(code, offset):
-	return '\u001b[' + str(code + offset) + 'm'
+	return '\x1b[38;5;' + str(code + offset) + 'm'
 
 def wrapAnsi256(code, offset):
-	return '\u001b[' + str(38 + offset) + ';5;' + str(code) + 'm'
+	return '\x1b[38;5;' + str(38 + offset) + ';5;' + str(code) + 'm'
