@@ -7,7 +7,7 @@ def colorize(rawChar, px):
 	rgb = [r,g,b]
 	code = convert.convert["rgb"]["ansi256"](rgb)
 	color = wrapAnsi256(code, 0)
-	reset = '\u001b[39m'
+	reset = '' #'\u001b[39m'
 	
 	return color + rawChar + reset
 
