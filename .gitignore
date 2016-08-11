@@ -31,3 +31,9 @@ Bin
 bin
 /bin
 .Python
+Dist
+dist
+/dist
+/Dist
+MANIFEST
+/MANIFEST
