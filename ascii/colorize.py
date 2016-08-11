@@ -12,7 +12,7 @@ def colorize(rawChar, px):
 	return color + rawChar + reset
 
 def wrapAnsi16(code, offset):
-	return '\x1b[38;5;' + str(code + offset) + 'm'
+	return '\x1b[' + str(code) + 'm'
 
 def wrapAnsi256(code, offset):
-	return '\x1b[38;5;' + str(38 + offset) + ';5;' + str(code) + 'm'
+	return '\x1b[38;5;' + str(offset) + 'm'
