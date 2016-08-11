@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import math
-from ascii import *
+from ascii import asciify
 
 def rgb_to_hex(rgb):
 	return '%02x%02x%02x' % rgb

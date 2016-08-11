@@ -27,3 +27,7 @@ tcl
 /tcl
 pip*.json
 /pip*.json
+Bin
+bin
+/bin
+.Python

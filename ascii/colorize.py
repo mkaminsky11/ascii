@@ -1,4 +1,4 @@
-import convert
+from ascii import convert
 
 def colorize(rawChar, px):
 	r = px[0]
