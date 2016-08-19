@@ -62,6 +62,10 @@ def rgb_ansi16(args):
 	if value == 0:
 		return 30
 
+	r = float(r)
+	g = float(g)
+	b = float(b)
+
 	ansi = 30 + (int(round(b / 255)) << 2) | (int(round(g / 255)) << 1) | (int(round(r / 255)) << 2)
 	if value == 2:
 		ansi += 60
@@ -81,8 +85,10 @@ def rgb_ansi256(args):
 		if r < 248:
 			return 231
 		return int(round(((r - 8) / 247) * 24)) + 232
-
-	ansi = 16 + (36 * int(round(r / 255 * 5))) + (6 * int(round(g / 255 * 5))) + int(round(b / 255 * 5))
+	r = float(r)
+	g = float(g)
+	b = float(b)
+	ansi = 16 + (36 * (round(r / 255 * 5))) + (6 * (round(g / 255 * 5))) + (round(b / 255 * 5))
 	return ansi
 
 convert["rgb"]["ansi256"] = rgb_ansi256
