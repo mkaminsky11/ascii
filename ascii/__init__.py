@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import math
 from ascii import asciify
+from ascii import colorize
 
 def rgb_to_hex(rgb):
 	return '%02x%02x%02x' % rgb
@@ -40,3 +41,8 @@ def loadFromUrl(URL, columns=60, color=True):
 
 def onePixel(r, g, b):
 	return asciify.asciify(r,g,b, 1)
+
+def color(code, rawChar):
+	ansi = colorize.wrapAnsi256(code, 0)
+	reset = '\x1b[0m'
+	return ansi + rawChar + reset
