@@ -7,21 +7,26 @@ Turns images into ascii art
 pip install ascii
 ```
 
-## Usage
+## Basic Usage
 ```python
-import ascii
-
-#
-# CONVERT WHOLE IMAGE
-#
+import ascii # import the package
 
 output = ascii.loadFromUrl("http://i.imgur.com/ITx3Jcd.jpg") # load a funny picture :)
-print(output) # display it here
+print(output)
+```
 
-#
-# CONVERT ONE PIXEL
-#
+## Advanced Usage
+### Convert one pixel
+```
+output = ascii.onePixel(13,13,13) # some arbitrary rgb values
+```
 
-output = ascii.onePixel(13,13,13) # rgb values go here
-print(output) # display this one pixel
+### Create image with fixed width
+```
+output = ascii.loadFromUrl("http://i.imgur.com/ITx3Jcd.jpg", columns=100)
+``
+
+### Don't color image
+```
+output = ascii.loadFromUrl("http://i.imgur.com/ITx3Jcd.jpg", color=False)
 ```
