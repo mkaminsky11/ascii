@@ -12,11 +12,36 @@ import urllib3
 http = urllib3.PoolManager()
 import io
 
-# load images
+# load image from a URL
 def loadFromUrl(URL, columns=60, color=True):
 	fd = http.request('GET', URL)
 	image_file = io.BytesIO(fd.data)
 	im = Image.open(image_file)
+
+	size = im.size
+	rows = columns * size[1] / size[0]
+	rows = int(round(rows))
+	"""
+	rows/columns = height/width
+	"""
+	im = im.resize((columns, rows))
+	px = im.load()
+	size = im.size
+	output = ""
+	for y in range(0, size[1]):
+		for x in range(0, size[0]):
+			_px = px[x,y]
+			_a = asciify.getRawChar(_px[0], _px[1], _px[2], 1)
+			if color == True:
+				_a = asciify.asciify(_px[0], _px[1], _px[2], 1)
+
+			output = output + _a
+		output = output + "\n"
+	return output
+
+# load image from a file location
+def loadFromFile(File, columns=60, color=True):
+	im = Image.open(File)
 
 	size = im.size
 	rows = columns * size[1] / size[0]

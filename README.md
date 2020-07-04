@@ -11,7 +11,11 @@ pip install ascii
 ```python
 import ascii # import the package
 
-output = ascii.loadFromUrl("http://i.imgur.com/ITx3Jcd.jpg") # load a funny picture :)
+
+output = ascii.loadFromUrl("http://i.imgur.com/ITx3Jcd.jpg") # load a funny picture from the web :)
+print(output)
+
+output = ascii.loadFromFile("C:/Users/AwesomeUser/Desktop/example.jpg") # load a picture from a directory
 print(output)
 ```
 
